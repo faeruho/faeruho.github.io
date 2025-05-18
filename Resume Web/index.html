@@ -143,8 +143,8 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             cursor: pointer;
             z-index: 1;
         }
@@ -282,8 +282,8 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             cursor: pointer;
             z-index: 1000;
         }
@@ -294,11 +294,11 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 32px;
-            height: 2px;
-            background-color: rgba(200, 200, 200, 0.8);
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
-                        0 0 10px rgba(255, 255, 255, 0.3);
+            width: 24px;
+            height: 1px;
+            background-color: rgba(200, 200, 200, 0.6);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.3),
+                        0 0 10px rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
 
@@ -312,10 +312,10 @@
 
         .close-button:hover::before,
         .close-button:hover::after {
-            background-color: rgba(220, 220, 220, 1);
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
-                        0 0 10px rgba(255, 255, 255, 0.5),
-                        0 0 15px rgba(255, 255, 255, 0.3);
+            background-color: rgba(220, 220, 220, 0.8);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                        0 0 10px rgba(255, 255, 255, 0.3),
+                        0 0 15px rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
@@ -485,6 +485,40 @@
             $(document).ready(function() {
                 console.log('Document is ready');
 
+                // Function to close all modals
+                function closeAllModals() {
+                    $('.modal').fadeOut();
+                }
+
+                // Certificates modal trigger
+                $('.modal-certificates-trigger').on('click', function(e) {
+                    e.preventDefault();
+                    console.log('Certificates button clicked');
+                    closeAllModals(); // Close any open modal first
+                    $('.modal-certificates').fadeIn();
+                });
+
+                // Bio modal trigger
+                $('.modal-bio-trigger').on('click', function(e) {
+                    e.preventDefault();
+                    console.log('Bio button clicked');
+                    closeAllModals(); // Close any open modal first
+                    $('.modal-bio').fadeIn();
+                });
+
+                // Close button handler for both modals
+                $('.modal-certificates .close-button, .modal-bio .close-button').on('click', function() {
+                    console.log('Close button clicked');
+                    $(this).closest('.modal').fadeOut();
+                });
+
+                // Close on click outside for both modals
+                $('.modal-certificates, .modal-bio').on('click', function(e) {
+                    if ($(e.target).is('.modal-certificates') || $(e.target).is('.modal-bio')) {
+                        $(this).fadeOut();
+                    }
+                });
+
                 // Mouse zoom effect
                 $(document).mousemove(function(e) {
                     const mouseX = e.pageX;
@@ -523,33 +557,6 @@
                         }
                     });
                 }
-
-                // Certificates modal trigger
-                $('.modal-certificates-trigger').on('click', function(e) {
-                    e.preventDefault();
-                    console.log('Certificates button clicked');
-                    $('.modal-certificates').fadeIn();
-                });
-
-                // Bio modal trigger
-                $('.modal-bio-trigger').on('click', function(e) {
-                    e.preventDefault();
-                    console.log('Bio button clicked');
-                    $('.modal-bio').fadeIn();
-                });
-
-                // Close button handler for both modals
-                $('.modal-certificates .close-button, .modal-bio .close-button').on('click', function() {
-                    console.log('Close button clicked');
-                    $(this).closest('.modal').fadeOut();
-                });
-
-                // Close on click outside for both modals
-                $('.modal-certificates, .modal-bio').on('click', function(e) {
-                    if ($(e.target).is('.modal-certificates') || $(e.target).is('.modal-bio')) {
-                        $(this).fadeOut();
-                    }
-                });
 
                 // Initialize AOS if it exists
                 if (typeof AOS !== 'undefined') {
