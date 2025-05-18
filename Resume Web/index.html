@@ -276,6 +276,47 @@
             transition: transform 0.2s ease-out;
             will-change: transform;
         }
+
+        /* Modal Close Button Styles */
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .close-button::before,
+        .close-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 32px;
+            height: 2px;
+            background-color: rgba(200, 200, 200, 0.8);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                        0 0 10px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .close-button::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .close-button::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .close-button:hover::before,
+        .close-button:hover::after {
+            background-color: rgba(220, 220, 220, 1);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+                        0 0 10px rgba(255, 255, 255, 0.5),
+                        0 0 15px rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body class="p-front" id="front-page">
@@ -314,38 +355,38 @@
 
         <!-- Certificates Modal -->
         <div class="modal modal-certificates" style="display: none;">
-            <div class="close-button"></div>
             <div class="l-inner">
+                <div class="close-button"></div>
                 <div class="certificates-grid">
                     <div class="certificate-item">
-                        <img src="images/certs/a-logo-jpeg.png" alt="A+">
+                        <img src="images/certs/A.png" alt="A+">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/securityplus-logo.png" alt="Security+">
+                        <img src="images/certs/Sec.png" alt="Security+">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/networkplus-logo.png" alt="Network+">
+                        <img src="images/certs/Network.png" alt="Network+">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/cloudplus-logo.png" alt="Cloud+">
+                        <img src="images/certs/Cloud.png" alt="Cloud+">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/cscp-logo-jpg.jpg" alt="CSCP">
+                        <img src="images/certs/CSCP.jpg" alt="CSCP">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/csis-logo-jpg.jpg" alt="CSIS">
+                        <img src="images/certs/CSIS.jpg" alt="CSIS">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/ccap-logo-jpg.jpg" alt="CCAP">
+                        <img src="images/certs/CCAP.jpg" alt="CCAP">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/cios-logo-jpg.jpg" alt="CIOS">
+                        <img src="images/certs/CIOS.jpg" alt="CIOS">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/1686047974542.png" alt="Certificate">
+                        <img src="images/certs/ITIL.png" alt="ITIL">
                     </div>
                     <div class="certificate-item">
-                        <img src="images/certs/LPI-Essentials-Logo-300X300.png" alt="LPI Essentials">
+                        <img src="images/certs/LPI.png" alt="LPI">
                     </div>
                 </div>
             </div>
@@ -353,8 +394,8 @@
 
         <!-- Bio Modal -->
         <div class="modal modal-bio" style="display: none;">
-            <div class="close-button"></div>
             <div class="l-inner">
+                <div class="close-button"></div>
                 <div class="bio-content">
                     I'm a junior cybersecurity practitioner with a degree in cybersecurity and a strong focus on offensive security. I'm actively pursuing advanced certifications, including OffSec's CBBH, OSCP, and OSWE, to deepen my vulnerability discovery, exploitation, and secure code review capabilities.
 

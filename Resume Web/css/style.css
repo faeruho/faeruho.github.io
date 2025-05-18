@@ -1011,47 +1011,52 @@ article {
   margin-bottom: 50px;
 }
 
-.close-button {
-  width: 21px;
-  height: 21px;
-  position: absolute;
-  top: 35px;
-  right: 27px;
+/* Modal Close Button */
+.modal-certificates .close-button,
+.modal-bio .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 1000;
 }
-@media screen and (min-width: 768px) {
-  .close-button {
-    right: 77px;
-  }
+
+.modal-certificates .close-button:before,
+.modal-certificates .close-button:after,
+.modal-bio .close-button:before,
+.modal-bio .close-button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 2px;
+    background-color: rgba(200, 200, 200, 0.8);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                0 0 10px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
 }
-.close-button:hover {
-  cursor: pointer;
-  opacity: 0.7;
+
+.modal-certificates .close-button:before,
+.modal-bio .close-button:before {
+    transform: translate(-50%, -50%) rotate(45deg);
 }
-.close-button:before {
-  content: "";
-  display: block;
-  width: 23px;
-  height: 1px;
-  background-color: #fff;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+
+.modal-certificates .close-button:after,
+.modal-bio .close-button:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
-.close-button:after {
-  content: "";
-  display: block;
-  width: 23px;
-  height: 1px;
-  background-color: #fff;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+
+.modal-certificates .close-button:hover:before,
+.modal-certificates .close-button:hover:after,
+.modal-bio .close-button:hover:before,
+.modal-bio .close-button:hover:after {
+    background-color: rgba(220, 220, 220, 1);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+                0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .post-password-form {
